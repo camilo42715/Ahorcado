@@ -11,9 +11,10 @@
 public class Palabra {
     String p;
     char letras[];
-    String palabras[]={"HOLA","LOSA","BARA","CAMI","LOCA","GANO","LOOL","MAGO","COOL"};
+    String palabras[]={"PERDI","ENANO","ANEXO","ANIME","ANTES","LUEGO","VERBO","MAGO","VELGA","Banco","BRUTO",
+        "DELTA","ERIZO","DONAR","LETRA","ACIDO","ACTOR","AMIGO","APOYO"};
     void seleccionar(){
-    int x=(int) (Math.random()*9);
+    int x=(int) (Math.random()*19);
     p=palabras[x];
     }
     void dividir(){

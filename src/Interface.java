@@ -1,3 +1,6 @@
+
+import java.util.Set;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,6 +21,7 @@ public class Interface extends javax.swing.JFrame {
     char b;
     char c;
     char d;
+    char e;
     boolean error = true;
     int intentos = 0;
     Palabra nuevo=new Palabra(); 
@@ -28,7 +32,7 @@ public class Interface extends javax.swing.JFrame {
         b= Caracter2.getText().charAt(0);
         c= Caracter3.getText().charAt(0);
         d = Caracter4.getText().charAt(0);
-      
+        e=Caracter5.getText().charAt(0);
         if (a ==nuevo.letras[0]) {
             puntaje++;
         }
@@ -39,6 +43,9 @@ public class Interface extends javax.swing.JFrame {
             puntaje++;
         }
         if (d ==nuevo.letras[3]) {
+            puntaje++;
+        }
+        if(e==nuevo.letras[4]){
             puntaje++;
         }
     }
@@ -66,6 +73,7 @@ public class Interface extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        Caracter5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,6 +105,12 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel1.setText("Poner su letra");
 
+        Caracter5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Caracter5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,6 +126,8 @@ public class Interface extends javax.swing.JFrame {
                         .addComponent(Caracter3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(Caracter4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Caracter5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
@@ -134,7 +150,8 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(Caracter2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Caracter3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Caracter4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(Caracter5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -163,11 +180,14 @@ public class Interface extends javax.swing.JFrame {
            Caracter2.setEnabled(true);
            Caracter3.setEnabled(true);
            Caracter4.setEnabled(true);
+           Caracter5.setEnabled(true);
+        
        Colocador.setText("");
            Caracter1.setText("*");
            Caracter2.setText("*");
            Caracter3.setText("*");
            Caracter4.setText("*");
+           Caracter5.setText("*");
         nuevo.seleccionar();
         nuevo.dividir();
     
@@ -178,7 +198,7 @@ public class Interface extends javax.swing.JFrame {
  letra = Colocador.getText();
        char x = letra.charAt(0);
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             if (x == nuevo.letras[i]) {
                 if (i == 0) {
                     Caracter1.setText(String.valueOf(nuevo.letras[i]));
@@ -192,10 +212,17 @@ public class Interface extends javax.swing.JFrame {
                 if (i == 3) {
                     Caracter4.setText(String.valueOf(nuevo.letras[i]));
                 }
+                if(i ==4){
+                    Caracter5.setText(String.valueOf(nuevo.letras[i]));
+                }
                 error = false;
             }
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void Caracter5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Caracter5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Caracter5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,6 +264,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JTextField Caracter2;
     private javax.swing.JTextField Caracter3;
     private javax.swing.JTextField Caracter4;
+    private javax.swing.JTextField Caracter5;
     private javax.swing.JTextField Colocador;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
